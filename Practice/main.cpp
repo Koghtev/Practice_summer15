@@ -11,7 +11,7 @@
 #include <iostream>
 
 int socket(int AF_INET, int SOCK_STREAM, int n){
-    //123
+    //1234
     return 0;
 }
 
