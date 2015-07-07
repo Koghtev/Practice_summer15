@@ -1,0 +1,2 @@
+Program('echo_server',['main.cpp'], CXXFLAGS='-g')
+Program('echo_test',['gtest-all.cc', 'server_test.cpp', 'gtest_main.cc'], CXXFLAGS='-g')
