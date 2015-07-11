@@ -1,2 +1,4 @@
-Program('echo_server',['main.cpp'], CXXFLAGS='-g')
-Program('echo_test',['gtest-all.cc', 'server_test.cpp', 'gtest_main.cc'], CXXFLAGS='-g')
+CXXFLAGS="-g -std=c++0x"
+
+Program('echo_server',['main.cpp'], CXXFLAGS=CXXFLAGS)
+Program('echo_test',['gtest-all.cc', 'server_test.cpp', 'gtest_main.cc'], CXXFLAGS=CXXFLAGS)

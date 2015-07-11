@@ -16,9 +16,25 @@ TEST(Server, Empty) {
     ASSERT_EQ(a+1, b);
 }
 
-TEST(Server, Test_class) {
-    Server server(50000);
+TEST(Server, EchoServer) {
+    Server server(EchoHandler, 50000);
     server.start();
+    
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    int sockaddr_len = sizeof(struct sockaddr_in);
+    
+    int connection =  connect(sockfd, (struct sockaddr *)&server, sockaddr_len);
+    if (connection == ERROR) {
+        perror("errno");
+        exit(-1);
+    }
+
+    write(sockfd, buff, buff_len);
+    buff_len = read(socket, buff, MAXLINE);
+    close(sockfd);
+    // write, read, ASSERT_EQ();
+    
     server.stop();
     
 }
